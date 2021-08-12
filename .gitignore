@@ -1,2 +1,8 @@
+# source file
 *.mp4
 *.m4a
+*.vtt
+
+# output file
+*.media_info
+*.mpd

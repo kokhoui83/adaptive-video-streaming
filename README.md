@@ -28,3 +28,21 @@
 ./scripts/transcode.sh ./media/video/big-buck-bunny.mp4
 ```
 - Transcoded file are stored in `./media/output`
+
+## Package video as adaptive bitrate
+- Start shaka-packager container
+```
+docker run -v ${PWD}/:/media -it --rm google/shaka-packager
+```
+- Go to project directory
+```
+cd media
+```
+
+### DASH-MPEG
+- Command
+```
+# Example
+./scripts/package-dash.sh ./media/output/big-buck-bunny
+```
+- Generate file will be in `./media/package/<title>/dash`
