@@ -2,7 +2,20 @@
 
 # Prequisites
 - ffmpeg 4.2.x
+```
+sudo apt install ffmpeg
+```
 - shaka-packager
+    - binary
+```
+# download
+wget https://github.com/google/shaka-packager/releases/download/v2.5.1/packager-linux
+wget https://github.com/google/shaka-packager/releases/download/v2.5.1/mpd_generator-linux
+
+# move to bin
+sudo mv packager-linux /usr/local/bin/packager
+sudo mv mpd_generator-linux /usr/local/bin/mpd_generator
+```
 
 # Video Source
 - Big Buck Bunny
@@ -30,15 +43,6 @@
 - Transcoded file are stored in `./media/output`
 
 ## Package video as adaptive bitrate
-- Start shaka-packager container
-```
-docker run -v ${PWD}/:/media -it --rm google/shaka-packager
-```
-- Go to project directory
-```
-cd media
-```
-
 ### DASH-MPEG
 - Command
 ```
@@ -46,3 +50,8 @@ cd media
 ./scripts/package-dash.sh ./media/output/big-buck-bunny
 ```
 - Generate file will be in `./media/package/<title>/dash`
+
+## Run file server
+```
+docker run --name video-server -v ${PWD}/media/package:/usr/share/nginx/html:ro -d -p 8080:80 nginx
+```

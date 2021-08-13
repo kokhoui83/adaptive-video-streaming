@@ -14,7 +14,7 @@ packageStream() {
 }
 
 ## Process video
-for filePath in $VSRC*.mp4; do
+for filePath in $VSRC/*.mp4; do
   filename=$(basename $filePath)
   file=$OUTPUT_PATH/"encrypt-"$filename".media_info"
 
@@ -25,7 +25,7 @@ for filePath in $VSRC*.mp4; do
 done
 
 ## Process audio
-for filePath in $VSRC*.m4a; do
+for filePath in $VSRC/*.m4a; do
   filename=$(basename $filePath)
   file=$OUTPUT_PATH/"encrypt-"$filename".media_info"
 
@@ -36,7 +36,7 @@ for filePath in $VSRC*.m4a; do
 done
 
 ## Process subtitles
-for filePath in $VSRC*.vtt; do
+for filePath in $VSRC/*.vtt; do
   filename=$(basename $filePath)
   file=$OUTPUT_PATH/"encrypt-"$filename".media_info"
 
@@ -50,7 +50,7 @@ done
 wait
 
 ## Generate MPD file
-for filePath in ./tmp/*.media_info; do
+for filePath in $OUTPUT_PATH/*.media_info; do
   if [[ -z $input ]]; then
     input=$filePath
   else
