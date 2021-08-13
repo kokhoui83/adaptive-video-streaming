@@ -31,7 +31,7 @@ docker pull nginx:1.21.1
 - Tears of Steel
     - https://cloud.blender.org/films/tears-of-steel/?asset=42
 
-** Download original video and put in `./media/video`
+** Download original video and put in `./media/source`
 
 ## Prepare source file
 - Source file should contain only the video stream and audio stream as separate file
