@@ -76,9 +76,28 @@ mv video.mp4 big-buck-bunny.mp4
 - Generate file will be in `./media/package/<title>/dash`
 
 ### HLS
-TBA
+- Command
+```
+# Example
+./scripts/package-hls.sh ./media/output/big-buck-bunny
+```
+- Generate file will be in `./media/package/<title>/hls`
 
-## Run file server
+# Video Playback
+## Run local file server
+- Use nginx in docker container to server video file
+- Command
 ```
 docker run --name video-server -v ${PWD}/media/package:/usr/share/nginx/html:ro -d -p 8080:80 nginx:1.21.1
+```
+## Playback
+- Use compatible player such as
+    - vlc
+- Point to the following
+```
+# dash
+http://localhost:8080/big-buck-bunny/dash/output.mpd
+
+# hls
+http://localhost:8080/big-buck-bunny/hls/master.m3u8
 ```

@@ -7,7 +7,6 @@ packageStream() {
   type=$2
 
   filename=$(basename $filePath)
-  contentId=$(echo -n filename | xxd -p)
 
   packager \
     input=$filePath,stream=$type,output=$OUTPUT_PATH/package-$filename --output_media_info &

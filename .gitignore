@@ -6,3 +6,4 @@
 # output file
 *.media_info
 *.mpd
+*.m3u8
