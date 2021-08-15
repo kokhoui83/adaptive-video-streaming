@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  video:
+    image: nginx:1.21.1
+    container_name: nginx-video-server
+    volumes:
+      - ./media/package:/usr/share/nginx/html:ro
+    ports:
+      - 8080:80
