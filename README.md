@@ -88,7 +88,11 @@ mv video.mp4 big-buck-bunny.mp4
 - Use nginx in docker container to server video file
 - Command
 ```
-docker run --name video-server -v ${PWD}/media/package:/usr/share/nginx/html:ro -d -p 8080:80 nginx:1.21.1
+# docker-compose
+docker-compose up -d
+
+# manual
+docker run --name nginx-video-server -v ${PWD}/media/package:/usr/share/nginx/html:ro -d -p 8080:80 nginx:1.21.1
 ```
 ## Playback
 - Use compatible player such as
