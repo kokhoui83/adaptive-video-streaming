@@ -84,24 +84,18 @@ mv video.mp4 big-buck-bunny.mp4
 - Generate file will be in `./media/package/<title>/hls`
 
 # Video Playback
-## Run local file server
+## Run local file server & player
 - Use nginx in docker container to server video file
 - Command
 ```
 # docker-compose
 docker-compose up -d
-
-# manual
-docker run --name nginx-video-server -v ${PWD}/media/package:/usr/share/nginx/html:ro -d -p 8080:80 nginx:1.21.1
 ```
 ## Playback
-- Use compatible player such as
-    - vlc
-- Point to the following
+- Open browser `http://localhost:8181` to use locally run player
+- OR using other player such as `vlc`, use the video-server playlist
 ```
-# dash
+# Examples
 http://localhost:8080/big-buck-bunny/dash/output.mpd
-
-# hls
 http://localhost:8080/big-buck-bunny/hls/master.m3u8
 ```
