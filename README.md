@@ -62,9 +62,13 @@ mv video.mp4 big-buck-bunny.mp4
 - Command
 ```
 # Example
-./scripts/transcode.sh ./media/video/big-buck-bunny.mp4
+./scripts/transcode.sh ./media/source/big-buck-bunny.mp4
 ```
 - Transcoded file are stored in `./media/output`
+- Copy audio file to same directory in `./media/output`
+```
+cp ./media/source/big-buck-bunny.m4a
+```
 
 ## Package video as adaptive bitrate
 ### DASH-MPEG
