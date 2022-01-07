@@ -1,6 +1,6 @@
 // myapp.js
 const manifestUri =
-    'http://localhost:8080/big-buck-bunny/dash/output.mpd';
+    'http://localhost:8080/spring/dash/output.mpd';
 
 function initApp() {
   // Install built-in polyfills to patch browser incompatibilities.
